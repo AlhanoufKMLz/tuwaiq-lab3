@@ -28,18 +28,24 @@ public class Music extends Media{
     }
 
 
-//    //extra methods
-//    public void listen(User user){
-//
-//    }
-//
-//    public ArrayList<Music> generatePlaylist(ArrayList<Music> musicCatalog){
-//
-//    }
-//
-//    public String getMediaType(){
-//
-//    }
+    //extra methods
+    public void listen(User user){
+        user.getPurchaseMediaList().add(this);
+    }
+
+    public ArrayList<Music> generatePlaylist(ArrayList<Music> musicCatalog){
+        ArrayList<Music> playlist = new ArrayList<>();
+        for(int i = 0; i < musicCatalog.size(); i++){
+            if(musicCatalog.get(i).getAuthor().equalsIgnoreCase(super.getAuthor()))
+                playlist.add(musicCatalog.get(i));
+        }
+        return playlist;
+    }
+
+    public String getMediaType(){
+        if(super.getPrice() >= 10) return "Premium Music";
+        return "Music";
+    }
 
     //to string
     public String toString() {

@@ -66,7 +66,15 @@ public class User {
         shoppingCart.remove(media);
     }
 
-    public void checkout(){}
+    public void checkout(){
+        for(int i = 0; i < shoppingCart.size(); i++){
+            if(shoppingCart.get(i) instanceof Book){
+                ((Book) shoppingCart.get(i)).purchase(this);
+            } else if(shoppingCart.get(i) instanceof Movie){
+                ((Movie) shoppingCart.get(i)).watch(this);
+            } else ((Music) shoppingCart.get(i)).listen(this);
+        }
+    }
 
 
     //to string

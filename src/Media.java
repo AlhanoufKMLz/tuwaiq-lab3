@@ -1,15 +1,15 @@
 public class Media {
     private String title;
-    private String auteur;
+    private String author;
     private String ISBN;
     private double price;
 
     //constructor
     public Media(){
     }
-    public Media(String title, String auteur, String ISBN, double price) {
+    public Media(String title, String author, String ISBN, double price) {
         this.title = title;
-        this.auteur = auteur;
+        this.author = author;
         this.ISBN = ISBN;
         this.price = price;
     }
@@ -20,8 +20,8 @@ public class Media {
         return title;
     }
 
-    public String getAuteur() {
-        return auteur;
+    public String getAuthor() {
+        return author;
     }
 
     public String getISBN() {
@@ -38,8 +38,8 @@ public class Media {
         this.title = title;
     }
 
-    public void setAuteur(String auteur) {
-        this.auteur = auteur;
+    public void setAuthor(String author) {
+        this.author = author;
     }
 
     public void setISBN(String ISBN) {
@@ -61,7 +61,7 @@ public class Media {
     public String toString() {
         return "Media{" +
                 "title='" + title + '\'' +
-                ", auteur='" + auteur + '\'' +
+                ", auteur='" + author + '\'' +
                 ", ISBN='" + ISBN + '\'' +
                 ", price=" + price +
                 '}';

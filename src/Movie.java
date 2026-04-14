@@ -28,17 +28,23 @@ public class Movie extends Media{
     }
 
     //extra methods
-//    public void watch(User user){
-//
-//    }
-//
-//    public ArrayList<Movie> recommendSimilarMovies(ArrayList<Movie> movieCatalog){
-//
-//    }
-//
-//    public String getMediaType(){
-//
-//    }
+    public void watch(User user){
+        user.getPurchaseMediaList().add(this);
+    }
+
+    public ArrayList<Movie> recommendSimilarMovies(ArrayList<Movie> movieCatalog){
+        ArrayList<Movie> recommended = new ArrayList<>();
+        for(int i = 0; i < movieCatalog.size(); i++){
+            if(movieCatalog.get(i).getAuthor().equalsIgnoreCase(super.getAuthor()))
+                recommended.add(movieCatalog.get(i));
+        }
+        return recommended;
+    }
+
+    public String getMediaType(){
+        if(duration >= 120) return "Long Movie";
+        return "Movie";
+    }
 
 
     //to string

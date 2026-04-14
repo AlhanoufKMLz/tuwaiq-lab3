@@ -43,29 +43,36 @@ public class Book extends Media{
 
 
     //extra methods
-//    public void addReview(Review r) {
-//        reviews.add(r);
-//    }
-//
-//    public double getAverageRating(){
-//    }
-//
-//    public void purchase(User user){
-//
-//    }
-//
-//    public boolean isBestSeller(){
-//
-//    }
-//
-//    public void restock(int quantity){
-//        stock += quantity;
-//        System.out.println("The stuck is updated. \nAvailable stock: " + stock);
-//    }
-//
-//    public String getMediaType(){
-//
-//    }
+    public void addReview(Review r) {
+        reviews.add(r);
+    }
+
+    public double getAverageRating(){
+        int totalRatings = 0;
+        for(int i = 0; i < reviews.size(); i++){
+            totalRatings += reviews.get(i).getRating();
+        }
+        return totalRatings / reviews.size();
+    }
+
+    public void purchase(User user){
+        user.getPurchaseMediaList().add(this);
+        stock--;
+    }
+
+    public boolean isBestSeller(){
+        return getAverageRating() >= 4.5;
+    }
+
+    public void restock(int quantity){
+        stock += quantity;
+        System.out.println("The stuck is updated. \nAvailable stock: " + stock);
+    }
+
+    public String getMediaType(){
+        if(isBestSeller()) return "Bestselling Book";
+        return "Book";
+    }
 
 
     //to string

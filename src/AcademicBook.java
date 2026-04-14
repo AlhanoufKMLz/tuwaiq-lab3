@@ -35,9 +35,10 @@ public class AcademicBook extends Book{
 
 
     //extra methods
-//    public String getMediaType(){
-//
-//    }
+    public String getMediaType(){
+        if(isBestSeller()) return "Bestselling AcademicBook";
+        return "AcademicBook";
+    }
 
 
     //to string

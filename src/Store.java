@@ -33,23 +33,30 @@ public class Store {
 
 
     //extra methods
-//    public void AddUser(User user){
-//        users.add(user);
-//    }
-//
-//    public ArrayList<User> displayUsers(){
-//
-//    }
-//
-//    public void AddMedia(Media media){
-//        medias.add(media);
-//    }
-//
-//    public ArrayList<Media> displayMedias(){
-//
-//    }
-//
-//    public Book searchBook(String title){}
+    public void AddUser(User user){
+        users.add(user);
+    }
+
+    public ArrayList<User> displayUsers(){
+        return users;
+    }
+
+    public void AddMedia(Media media){
+        medias.add(media);
+    }
+
+    public ArrayList<Media> displayMedias(){
+        return medias;
+    }
+
+    public Book searchBook(String title){
+        for(int i = 0; i < medias.size(); i++){
+            if(medias.get(i).getTitle().equalsIgnoreCase(title) && medias.get(i) instanceof Book){
+                return (Book) medias.get(i);
+            }
+        }
+        return null;
+    }
 
 
     //to string
