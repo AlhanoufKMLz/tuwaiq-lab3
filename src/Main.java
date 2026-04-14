@@ -17,21 +17,21 @@ public class Main {
         Book book1 = new Book("Atomic Habits", "James Clear", "978-0735211292", 45, 20, new ArrayList<>(List.of(review1, review2)));
         Book book2 = new Book("Deep Work", "Cal Newport", "978-1455586691", 40, 15, new ArrayList<>());
 
-        Novel novel1 = new Novel("The Alchemist", "Paulo Coelho", "978-0062315007", 35, 30, new ArrayList<>(List.of(review3, review4)), "Adventure");
+        Novel novel1 = new Novel("The Alchemist", "Paulo Coelho", "978-0062315007", 35, 30, new ArrayList<>(List.of(review1, review4)), "Adventure");
         Novel novel2 = new Novel("1984", "George Orwell", "978-0451524935", 30, 25, new ArrayList<>(), "Dystopian");
 
         AcademicBook academicBook1 = new AcademicBook("Introduction to Algorithms", "Thomas H. Cormen", "978-0262033848", 120, 8, new ArrayList<>(List.of(review1, review4)), "Computer Science");
         AcademicBook academicBook2 = new AcademicBook("Calculus: Early Transcendentals", "James Stewart", "978-1285741550", 95, 5, new ArrayList<>(), "Mathematics");
 
         // Movies
-        Movie movie1 = new Movie("Inception", "Christopher Nolan", "978-1234500001", 25, 148);
-        Movie movie2 = new Movie("Interstellar", "Christopher Nolan", "978-1234500002", 25, 169);
-        Movie movie3 = new Movie("The Dark Knight", "Christopher Nolan", "978-1234500003", 20, 152);
-        Movie movie4 = new Movie("Parasite", "Bong Joon-ho", "978-1234500004", 20, 132);
+        Movie movie1 = new Movie("Inception", "Christopher Nolan", "978-1234500001", 25, 150);
+        Movie movie2 = new Movie("Interstellar", "Christopher Nolan", "978-1234500002", 25, 110);
+        Movie movie3 = new Movie("The Dark Knight", "Christopher Nolan", "978-1234500003", 20, 90);
+        Movie movie4 = new Movie("Parasite", "Bong Joon-ho", "978-1234500004", 20, 130);
 
         // Music
-        Music music1 = new Music("Thriller", "Michael Jackson", "978-1234600001", 15, "Michael Jackson");
-        Music music2 = new Music("Back in Black", "AC/DC", "978-1234600002", 15, "AC/DC");
+        Music music1 = new Music("Thriller", "Michael Jackson", "978-1234600001", 10, "Michael Jackson");
+        Music music2 = new Music("Back in Black", "AC/DC", "978-1234600002", 5, "AC/DC");
         Music music3 = new Music("The Dark Side of the Moon", "Pink Floyd", "978-1234600003", 15, "Pink Floyd");
         Music music4 = new Music("Rumours", "Fleetwood Mac", "978-1234600004", 15, "Fleetwood Mac");
 
@@ -132,12 +132,18 @@ public class Main {
         //get media type:
         System.out.println("\n-------get media type-------");
         System.out.println("Book \"" + book1.getTitle() + "\": " + book1.getMediaType() + "\nAverage Rating: " + book1.getAverageRating() + "\n");
+        System.out.println("Book \"" + book2.getTitle() + "\": " + book2.getMediaType() + "\nAverage Rating: " + book2.getAverageRating() + "\n");
+
         System.out.println("Novel \"" + novel1.getTitle() + "\": " + novel1.getMediaType() + "\nAverage Rating: " + novel1.getAverageRating() + "\n");
+        System.out.println("Novel \"" + novel2.getTitle() + "\": " + novel2.getMediaType() + "\nAverage Rating: " + novel2.getAverageRating() + "\n");
+
         System.out.println("Academic Book \"" + academicBook1.getTitle() + "\": " + academicBook1.getMediaType() + "\nAverage Rating: " + academicBook1.getAverageRating() + "\n");
+        System.out.println("Academic Book \"" + academicBook2.getTitle() + "\": " + academicBook2.getMediaType() + "\nAverage Rating: " + academicBook2.getAverageRating() + "\n");
+
         System.out.println("Movie \"" + movie1.getTitle() + "\": " + movie1.getMediaType() + "\nDuration: " + movie1.getDuration() + "\n");
-        System.out.println("Music \"" + music1.getTitle() + "\": " + music1.getMediaType() + "\nPrice: " + music1.getPrice());
+        System.out.println("Movie \"" + movie2.getTitle() + "\": " + movie2.getMediaType() + "\nDuration: " + movie2.getDuration() + "\n");
 
-
-
+        System.out.println("Music \"" + music1.getTitle() + "\": " + music1.getMediaType() + "\nPrice: " + music1.getPrice() + "\n");
+        System.out.println("Music \"" + music2.getTitle() + "\": " + music2.getMediaType() + "\nPrice: " + music2.getPrice());
     }
 }
