@@ -62,6 +62,10 @@ public class Main {
         System.out.println("book \"" + book2.getTitle() + "\" before restock: " + book2.getStock());
         book2.restock(10);
         System.out.println("book \"" + book2.getTitle() + "\" after restock: " + book2.getStock());
+        System.out.println("\n-------Restock with negative-------");
+        book1.restock(-5);
+
+
 
         //***Movie***
         //Movie > recommended similar movies
@@ -75,6 +79,7 @@ public class Main {
         if (recommendedMovies.isEmpty()) {
             System.out.println("No similar movies found for author: " + movie1.getAuthor());
         }
+
 
 
         //***Music***
@@ -91,6 +96,38 @@ public class Main {
         }
 
 
+
+        //***Store***
+        System.out.println("\n-------Store > search book-------");
+        System.out.println(store.searchBook("Introduction to Algorithms"));
+        System.out.println("\n-------Search non existent book-------");
+        System.out.println(store.searchBook("NONEXISTENT"));
+
+
+
+        //***User***
+        //User > add to cart
+        System.out.println("\n-------User > add to cart-------");
+        user1.addToCart(novel1);
+        user1.addToCart(academicBook1);
+        user1.addToCart(music1);
+        user1.addToCart(movie1);
+        System.out.println(user1.getUsername() + "'s cart: \n" + user1.toString());
+
+        //User > remove from cart
+        System.out.println("\n-------User > remove from cart-------");
+        user1.removeFromCart(academicBook1);
+        System.out.println(user1.getUsername() + "'s cart after removing item: \n" + user1.toString());
+        System.out.println("\n-------Remove item not in cart-------");
+        user1.removeFromCart(book1);
+
+        //User > checkout "its also tests purchase(), watch() and listen()"
+        System.out.println("\n-------User > checkout-------");
+        user1.checkout();
+        System.out.println(user1.getUsername() + " after checkout: \n" + user1.toString());
+
+
+
         //***All classes***
         //get media type:
         System.out.println("\n-------get media type-------");
@@ -100,23 +137,6 @@ public class Main {
         System.out.println("Movie \"" + movie1.getTitle() + "\": " + movie1.getMediaType() + "\nDuration: " + movie1.getDuration() + "\n");
         System.out.println("Music \"" + music1.getTitle() + "\": " + music1.getMediaType() + "\nPrice: " + music1.getPrice());
 
-
-        //***User***
-        //User > add to cart
-        System.out.println("\n-------User > add to cart-------");
-        user1.addToCart(novel1);
-        user1.addToCart(academicBook1);
-        System.out.println(user1.getUsername() + "'s cart: \n" + user1.toString());
-
-        //User > remove from cart
-        System.out.println("\n-------User > remove from cart-------");
-        user1.removeFromCart(academicBook1);
-        System.out.println(user1.getUsername() + "'s cart after removing item: \n" + user1.toString());
-
-        //User > checkout "its also tests purchase(), watch() and listen()"
-        System.out.println("\n-------User > checkout-------");
-        user1.checkout();
-        System.out.println(user1.getUsername() + " after checkout: \n" + user1.toString());
 
 
     }

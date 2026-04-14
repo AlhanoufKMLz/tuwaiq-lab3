@@ -58,7 +58,7 @@ public class Book extends Media{
 
     public void purchase(User user){
         if(stock == 0) {
-            System.out.println("sorry, this book is out of stock!");
+            System.out.println("sorry, the book " + this.getTitle() + "is out of stock!");
             return;
         }
         user.getPurchaseMediaList().add(this);
