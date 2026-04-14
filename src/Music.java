@@ -1,0 +1,50 @@
+import java.util.ArrayList;
+
+public class Music extends Media{
+    private String artist;
+
+    //constructor
+    public Music(){}
+
+    public Music(String artist) {
+        this.artist = artist;
+    }
+
+    public Music(String title, String auteur, String ISBN, double price, String artist) {
+        super(title, auteur, ISBN, price);
+        this.artist = artist;
+    }
+
+
+    //getters
+    public String getArtist() {
+        return artist;
+    }
+
+
+    //setters
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+
+//    //extra methods
+//    public void listen(User user){
+//
+//    }
+//
+//    public ArrayList<Music> generatePlaylist(ArrayList<Music> musicCatalog){
+//
+//    }
+//
+//    public String getMediaType(){
+//
+//    }
+
+    //to string
+    public String toString() {
+        return "Music{" +
+                "artist='" + artist + '\'' +
+                '}';
+    }
+}
