@@ -104,7 +104,6 @@ public class Main {
         //***User***
         //User > add to cart
         System.out.println("\n-------User > add to cart-------");
-        user1.addToCart(store.searchBook("BOOK2"));
         user1.addToCart(novel1);
         user1.addToCart(academicBook1);
         System.out.println(user1.getUsername() + "'s cart: \n" + user1.toString());
