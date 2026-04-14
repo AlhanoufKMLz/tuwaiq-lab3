@@ -125,6 +125,8 @@ public class Main {
         System.out.println("\n-------User > checkout-------");
         user1.checkout();
         System.out.println(user1.getUsername() + " after checkout: \n" + user1.toString());
+        System.out.println("\n-------Checkout with empty cart-------");
+        user2.checkout();
 
 
 
