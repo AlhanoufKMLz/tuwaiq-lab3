@@ -63,27 +63,45 @@ public class User {
     }
 
     public void removeFromCart(Media media){
-        shoppingCart.remove(media);
+        if (shoppingCart.contains(media)) {
+            shoppingCart.remove(media);
+            System.out.println("\"" + media.getTitle() + "\" removed from cart.");
+        } else {
+            System.out.println("\"" + media.getTitle() + "\" is not in your cart.");
+        }
     }
 
     public void checkout(){
-        for(int i = 0; i < shoppingCart.size(); i++){
-            if(shoppingCart.get(i) instanceof Book){
-                ((Book) shoppingCart.get(i)).purchase(this);
-            } else if(shoppingCart.get(i) instanceof Movie){
-                ((Movie) shoppingCart.get(i)).watch(this);
-            } else ((Music) shoppingCart.get(i)).listen(this);
+        if (shoppingCart.isEmpty()) {
+            System.out.println("Your cart is empty!");
+            return;
         }
+
+        for(Media m: shoppingCart){
+            if(m instanceof Book){
+                ((Book) m).purchase(this);
+            } else if(m instanceof Movie){
+                ((Movie) m).watch(this);
+            } else ((Music) m).listen(this);
+        }
+        shoppingCart.clear();
     }
 
 
     //to string
     public String toString() {
-        return "User{" +
-                "username='" + username + '\'' +
-                ", email='" + email + '\'' +
-                ", purchaseMediaList=" + purchaseMediaList +
-                ", shoppingCart=" + shoppingCart +
-                '}';
+        String purchase = "";
+        for (Media m : purchaseMediaList) {
+            purchase += m.toString() + "\n";
+        }
+        String cart = "";
+        for (Media m : shoppingCart) {
+            cart += m.toString() + "\n";
+        }
+        return
+                "-username: " + username +
+                "\n-email: " + email +
+                "\n-purchaseMediaList: \n" + (purchase.isEmpty() ? "No media" : purchase) +
+                "\n-shoppingCart: \n" + (cart.isEmpty() ? "No media" : cart);
     }
 }

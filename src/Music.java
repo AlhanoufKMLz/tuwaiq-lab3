@@ -35,9 +35,9 @@ public class Music extends Media{
 
     public ArrayList<Music> generatePlaylist(ArrayList<Music> musicCatalog){
         ArrayList<Music> playlist = new ArrayList<>();
-        for(int i = 0; i < musicCatalog.size(); i++){
-            if(musicCatalog.get(i).getAuthor().equalsIgnoreCase(super.getAuthor()))
-                playlist.add(musicCatalog.get(i));
+        for(Music m: musicCatalog){
+            if(m.getArtist().equalsIgnoreCase(artist) && m != this)
+                playlist.add(m);
         }
         return playlist;
     }
@@ -49,8 +49,7 @@ public class Music extends Media{
 
     //to string
     public String toString() {
-        return "Music{" +
-                "artist='" + artist + '\'' +
-                '}';
+        return super.toString() +
+                " ,artist: " + artist;
     }
 }

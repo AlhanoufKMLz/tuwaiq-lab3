@@ -23,17 +23,17 @@ public class Store {
 
 
     //setters
-    public void setUser(ArrayList<User>  users) {
+    public void setUsers(ArrayList<User>  users) {
         this.users = users;
     }
 
-    public void setMedia(ArrayList<Media> medias) {
+    public void setMedias(ArrayList<Media> medias) {
         this.medias = medias;
     }
 
 
     //extra methods
-    public void AddUser(User user){
+    public void addUser(User user){
         users.add(user);
     }
 
@@ -41,7 +41,7 @@ public class Store {
         return users;
     }
 
-    public void AddMedia(Media media){
+    public void addMedia(Media media){
         medias.add(media);
     }
 
@@ -50,20 +50,20 @@ public class Store {
     }
 
     public Book searchBook(String title){
-        for(int i = 0; i < medias.size(); i++){
-            if(medias.get(i).getTitle().equalsIgnoreCase(title) && medias.get(i) instanceof Book){
-                return (Book) medias.get(i);
+        for(Media m: medias){
+            if(m.getTitle().equalsIgnoreCase(title) && m instanceof Book){
+                return (Book) m;
             }
         }
+        System.out.println("Book \"" + title + "\" not found.");
         return null;
     }
 
 
     //to string
     public String toString() {
-        return "Store{" +
-                "users=" + users +
-                ", medias=" + medias +
-                '}';
+        return "Store" +
+                "\n-users: " + users +
+                "\n-medias: " + medias;
     }
 }

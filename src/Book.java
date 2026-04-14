@@ -27,7 +27,7 @@ public class Book extends Media{
         return stock;
     }
 
-    public ArrayList<Review> getReview() {
+    public ArrayList<Review> getReviews() {
         return reviews;
     }
 
@@ -37,8 +37,8 @@ public class Book extends Media{
         this.stock = stock;
     }
 
-    public void setReview(ArrayList<Review> review) {
-        this.reviews = review;
+    public void setReviews(ArrayList<Review> reviews) {
+        this.reviews = reviews;
     }
 
 
@@ -48,14 +48,19 @@ public class Book extends Media{
     }
 
     public double getAverageRating(){
+        if(reviews.isEmpty()) return 0;
         int totalRatings = 0;
-        for(int i = 0; i < reviews.size(); i++){
-            totalRatings += reviews.get(i).getRating();
+        for(Review r: reviews){
+            totalRatings += r.getRating();
         }
-        return totalRatings / reviews.size();
+        return (double) totalRatings / reviews.size();
     }
 
     public void purchase(User user){
+        if(stock == 0) {
+            System.out.println("sorry, this book is out of stock!");
+            return;
+        }
         user.getPurchaseMediaList().add(this);
         stock--;
     }
@@ -65,8 +70,12 @@ public class Book extends Media{
     }
 
     public void restock(int quantity){
+        if(quantity < 0) {
+            System.out.println("Restock quantity must be positive number.");
+            return;
+        }
         stock += quantity;
-        System.out.println("The stuck is updated. \nAvailable stock: " + stock);
+        System.out.println("The stock is updated. \nAvailable stock: " + stock);
     }
 
     public String getMediaType(){
@@ -77,10 +86,9 @@ public class Book extends Media{
 
     //to string
     public String toString() {
-        return "Book{" +
-                "stock=" + stock +
-                ", reviews=" + reviews +
-                '}';
+        return super.toString() +
+                " ,stock: " + stock +
+                " ,reviews: " + reviews;
     }
 }
 

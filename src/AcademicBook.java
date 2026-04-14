@@ -43,9 +43,8 @@ public class AcademicBook extends Book{
 
     //to string
     public String toString() {
-        return "Novel{" +
-                "subject='" + subject + '\'' +
-                '}';
+        return super.toString() +
+                " ,subject: " + subject;
     }
 
 }

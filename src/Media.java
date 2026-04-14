@@ -59,11 +59,9 @@ public class Media {
 
     //to string
     public String toString() {
-        return "Media{" +
-                "title='" + title + '\'' +
-                ", auteur='" + author + '\'' +
-                ", ISBN='" + ISBN + '\'' +
-                ", price=" + price +
-                '}';
+        return "   * title: " + title +
+                " ,author: " + author +
+                " ,ISBN: " + ISBN +
+                " ,price: " + price;
     }
 }

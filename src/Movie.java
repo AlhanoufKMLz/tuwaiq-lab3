@@ -34,9 +34,9 @@ public class Movie extends Media{
 
     public ArrayList<Movie> recommendSimilarMovies(ArrayList<Movie> movieCatalog){
         ArrayList<Movie> recommended = new ArrayList<>();
-        for(int i = 0; i < movieCatalog.size(); i++){
-            if(movieCatalog.get(i).getAuthor().equalsIgnoreCase(super.getAuthor()))
-                recommended.add(movieCatalog.get(i));
+        for(Movie m: movieCatalog){
+            if(m.getAuthor().equalsIgnoreCase(super.getAuthor()) && m != this)
+                recommended.add(m);
         }
         return recommended;
     }
@@ -49,8 +49,7 @@ public class Movie extends Media{
 
     //to string
     public String toString() {
-        return "Movie{" +
-                "duration=" + duration +
-                '}';
+        return super.toString() +
+                " ,duration: " + duration;
     }
 }

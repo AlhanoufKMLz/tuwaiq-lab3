@@ -43,10 +43,9 @@ public class Review {
 
     //to string
     public String toString() {
-        return "Review{" +
-                "username='" + username + '\'' +
-                ", rating=" + rating +
-                ", comment='" + comment + '\'' +
-                '}';
+        return "Review: " +
+                "username: " + username +
+                " ,rating: " + rating +
+                " ,comment: " + comment;
     }
 }

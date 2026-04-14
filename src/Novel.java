@@ -43,8 +43,7 @@ public class Novel extends Book{
 
     //to string
     public String toString() {
-        return "Novel{" +
-                "genre='" + genre + '\'' +
-                '}';
+        return super.toString() +
+                " ,genre: " + genre;
     }
 }
